@@ -1,7 +1,6 @@
 package com.example.markettask1
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.markettask1.databinding.ActivityItemDetailBinding
 
@@ -11,8 +10,8 @@ class ItemDetailActivity : AppCompatActivity() {
     private val myItemsList = MyItemsList.getItemsList()
     private lateinit var items: ItemInfo
 
-    var detailIsHeart: Boolean = false
-    var detailHeartNum: Int = 0
+    private var detailIsHeart: Boolean = false
+    private var detailHeartNum: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +19,6 @@ class ItemDetailActivity : AppCompatActivity() {
 
         // Intent로부터 데이터 가져오기
         val selected = intent.getParcelableExtra<ItemInfo>("selected")!!
-
-        Toast.makeText(this, "$selected 받음", Toast.LENGTH_SHORT).show()
 
         // 데이터를 뷰에 적용
         items = myItemsList.searchItemByName(selected.thisName)!!
@@ -42,10 +39,12 @@ class ItemDetailActivity : AppCompatActivity() {
         detailIsHeart = selected.isHeart
         detailHeartNum = selected.thisHeart
 
+        //< 버튼 누른 경우
         binding.ivBtnBack.setOnClickListener {
             finish()
         }
 
+        //하트 버튼 누른 경우
         binding.ibBtnDetailHeart.setOnClickListener {
             //현재 하트 상태를 반전시키고
             selected.isHeart = !selected.isHeart

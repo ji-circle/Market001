@@ -16,5 +16,7 @@ data class ItemInfo(
     val thisComment: Int,
     var isHeart: Boolean = false
 ) : Parcelable {
+
+    //isHeart가 true면 채운 하트를 돌려줌
     val changeHeart get() = if (isHeart) R.drawable.filledheart else R.drawable.heart
 }

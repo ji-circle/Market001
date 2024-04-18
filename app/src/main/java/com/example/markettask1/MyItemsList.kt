@@ -132,11 +132,6 @@ class MyItemsList {
         return myItems.find { it.thisName == name }
     }
 
-    fun newItem(item: ItemInfo) {
-        _myItems.add(item)
-        //만들 때 현재 리스트의 개수 구해서 + 1 를 thisNum에 넣기
-    }
-
     //        //0 : 눌렸던 상태 -> 다시 눌러 취소한 상태
     //        //1 : 눌리지 않은 상태 -> 누른 상태
     //        //2 : 눌리지 않은 상태 -> 눌리지 않은 상태 (초기... onClick 했으면 바뀌게 하기)
@@ -166,8 +161,6 @@ class MyItemsList {
             }
             return myItemsList as MyItemsList
         }
-        //이 부분 코드 다시보기...
-
     }
 }
 
