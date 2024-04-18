@@ -3,6 +3,7 @@ package com.example.markettask1
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.markettask1.databinding.ActivityItemDetailBinding
+import com.google.android.material.snackbar.Snackbar
 
 class ItemDetailActivity : AppCompatActivity() {
 
@@ -52,6 +53,16 @@ class ItemDetailActivity : AppCompatActivity() {
             myItemsList.changeHeartStatus(items, selected.isHeart)
             //하트 이미지를 업데이트
             binding.ibBtnDetailHeart.setImageResource(selected.changeHeart)
+            showSnackbar(selected.isHeart)
+        }
+    }
+
+    private fun showSnackbar(_isHeart: Boolean) {
+        val rootView = binding.root
+        if (_isHeart) {
+            Snackbar.make(rootView, "관심 목록에 추가되었습니다.", Snackbar.LENGTH_SHORT).show()
+        }else{
+            //
         }
     }
 }

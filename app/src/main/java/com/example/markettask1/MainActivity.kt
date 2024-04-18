@@ -228,7 +228,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("뒤로가기 타이틀")
             .setMessage("종료하시겠습니까?")
-            .setPositiveButton("확인") { _, _ ->//사용자가 확인을 선택한 경우 앱 종료...?
+            .setPositiveButton("확인") { _, _ ->//사용자가 확인을 선택한 경우 앱 종료...
                 finish()
             }
             .setNegativeButton("취소") { _, _ ->//사용자가 취소를 선택한 경우 아무 동작도 하지 않음
