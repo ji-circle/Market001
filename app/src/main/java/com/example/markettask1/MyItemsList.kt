@@ -115,23 +115,9 @@ class MyItemsList {
             40,
             6
         )
-
     )
 
     val myItems: List<ItemInfo> = _myItems
-
-    //
-    fun deleteItem(item: ItemInfo) {
-        _myItems.remove(item)
-    }
-
-    fun deleteItemByNum(num: Int) {
-        for (item in _myItems) {
-            if (item.thisNum == num) {
-                _myItems.remove(item)
-            }
-        }
-    }
 
     fun deleteItemByName(_name: String) {
         for (item in _myItems) {
@@ -140,11 +126,6 @@ class MyItemsList {
                 break
             }
         }
-    }
-
-
-    fun searchItemByNum(num: Int): ItemInfo? {
-        return myItems.find { it.thisNum == num }
     }
 
     fun searchItemByName(name: String): ItemInfo? {
@@ -156,11 +137,9 @@ class MyItemsList {
         //만들 때 현재 리스트의 개수 구해서 + 1 를 thisNum에 넣기
     }
 
-
     //        //0 : 눌렸던 상태 -> 다시 눌러 취소한 상태
-//        //1 : 눌리지 않은 상태 -> 누른 상태
-//        //2 : 눌리지 않은 상태 -> 눌리지 않은 상태 (초기... onClick 했으면 바뀌게 하기)
-
+    //        //1 : 눌리지 않은 상태 -> 누른 상태
+    //        //2 : 눌리지 않은 상태 -> 눌리지 않은 상태 (초기... onClick 했으면 바뀌게 하기)
     fun changeHeartStatus(_itemInfo: ItemInfo, _isNowHeart: Boolean) {
         val tempName = _itemInfo.thisName
         val tempItem = _myItems.find { it.thisName == tempName }
@@ -170,32 +149,13 @@ class MyItemsList {
             if (tempIsHeart && !_isNowHeart) {
                 thisHeart -= 1
                 isHeart = false
-
             } else if (!tempIsHeart && _isNowHeart) {
                 thisHeart += 1
                 isHeart = true
             } else {
                 //
             }
-
         }
-
-
-//        if (tempIsHeart && !_isNowHeart) {
-//            tempItem.thisHeart -= 1
-//            tempItem.isHeart = false
-//
-////            _myItems.find { it.thisName == tempName }!!.thisHeart -= 1
-////            _myItems.find { it.thisName == tempName }!!.isHeart = false
-//        } else if (!tempIsHeart && _isNowHeart) {
-//            tempItem.thisHeart += 1
-//            tempItem.isHeart = true
-//
-////            _myItems.find { it.thisName == tempName }!!.thisHeart += 1
-////            _myItems.find { it.thisName == tempName }!!.isHeart = true
-//        } else {
-//            //
-//        }
     }
 
     companion object {
@@ -208,10 +168,7 @@ class MyItemsList {
         }
         //이 부분 코드 다시보기...
 
-
     }
-
-
 }
 
 fun putCommas(number: Int): String {
